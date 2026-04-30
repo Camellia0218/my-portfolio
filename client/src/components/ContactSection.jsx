@@ -133,8 +133,8 @@ export const ContactSection = () => {
             <div className="space-y-4 sm:space-y-6">
               {[
                 { icon: Mail, label: "Email", content: "gaominxig@gmail.com", href: "mailto:gaominxig@gmail.com" },
-                { icon: Phone, label: "Phone", content: "+851 96465445", href: "tel:+85196465445" },
-                { icon: MapPin, label: "Location", content: "China Hongkong", isSpan: true }
+                { icon: Phone, label: "Phone", content: "+852 96465445", href: "tel:+85196465445" },
+                { icon: MapPin, label: "Location", content: "Hongkong,China", isSpan: true }
               ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 hover:bg-[#002FA7]/5 rounded-lg sm:rounded-xl transition-all duration-300 group">
                     <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-[#002FA7]/10 text-[#002FA7] group-hover:bg-[#002FA7] group-hover:text-white transition-all duration-300">

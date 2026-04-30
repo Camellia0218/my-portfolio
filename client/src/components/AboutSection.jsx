@@ -15,11 +15,31 @@ export const AboutSection = () => {
   ];
 
   const techStack = [
-    { category: "Frontend", items: ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "Tailwind"] },
-    { category: "Backend", items: ["Node.js", "Express", "Java", "Python"] },
-    { category: "Cloud", items: ["AWS", "Docker", "Vercel", "MongoDB"] }
+    {
+      category: "Branding",
+      items: [
+        "Project Harbour",
+        "D&AD Project"
+      ]
+    },
+    {
+      category: "Poster Design",
+      items: [
+        "Poster Design",
+        "P4ES Project",
+        "6Brief"
+      ]
+    },
+    {
+      category: "others",
+      items: [
+        "Xiaomi Case Design",
+        "McDonald Promotional Video",
+        "Song Campaign Design",
+        "ICBC Mascot"
+      ]
+    }
   ];
-
 
   const tabContent = {
     personal: "I'm Kylie. As a college student with an unquenchable passion for art, I see the world as a sprawling canvas waiting to be transformed by\n" +

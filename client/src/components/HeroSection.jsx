@@ -134,7 +134,7 @@ export const HeroSection = () => {
                   className="block bg-gradient-to-r from-[#002FA7] via-[#0033FF] to-[#001A66] bg-clip-text text-transparent mt-2"
                   animate={{backgroundPosition: ['0%', '100%', '0%']}} transition={{duration: 8, repeat: Infinity}}
                   style={{backgroundSize: '200% 100%'}}>
-                  Advertising Student
+                Advertising Student
               </motion.span>
             </motion.h1>
 

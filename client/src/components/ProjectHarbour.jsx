@@ -18,7 +18,8 @@ const ProjectHarbour = () => {
                         <p className="text-sm italic border-l-4 border-[#002FA7] pl-4">
                             To maintain the clarity and impact of our brand signature, it’s essential to preserve a
                             consistent area of clear space around the logo. This buffer zone ensures that no other text,
-                            images, or design elements interfere with its visibility. The minimum clear space is typically
+                            images, or design elements interfere with its visibility. The minimum clear space is
+                            typically
                             defined by a key measurement—such as the height of a specific letter or icon—so the logo
                             remains prominent and easy to recognize. By adhering to this guideline, we uphold a
                             professional, cohesive brand presentation across all media and applications
@@ -65,7 +66,7 @@ const ProjectHarbour = () => {
                 <h2 className="text-3xl font-bold mb-12 text-center">Visual Symphony</h2>
 
                 <div className="flex justify-center w-full mb-12">
-                <img
+                    <img
                         src="/Project Harbour/Project Harbour2.png"
                         className="rounded-xl shadow-lg w-full max-w-4xl object-contain"
                         alt="Logo Variations"
@@ -75,16 +76,16 @@ const ProjectHarbour = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
                     {/* 这里可以对应图五的色块 */}
                     <div
-                        className="h-40 bg-[#096688] rounded-t-xl flex items-end p-4 text-white font-mono text-sm">#096688
+                        className="h-40 bg-[#096688] rounded-xl flex items-end p-4 text-white font-mono text-sm">#096688
                     </div>
                     <div
-                        className="h-40 bg-[#89DECE] rounded-t-xl flex items-end p-4 text-slate-800 font-mono text-sm">#89DECE
+                        className="h-40 bg-[#89DECE] rounded-xl flex items-end p-4 text-slate-800 font-mono text-sm">#89DECE
                     </div>
                     <div
-                        className="h-40 bg-[#C4E9F4] rounded-t-xl flex items-end p-4 text-slate-800 font-mono text-sm">#C4E9F4
+                        className="h-40 bg-[#C4E9F4] rounded-xl flex items-end p-4 text-slate-800 font-mono text-sm">#C4E9F4
                     </div>
                     <div
-                        className="h-40 bg-[#FAE9CE] rounded-t-xl flex items-end p-4 text-slate-800 font-mono text-sm">#FAE9CE
+                        className="h-40 bg-[#FAE9CE] rounded-xl flex items-end p-4 text-slate-800 font-mono text-sm">#FAE9CE
                     </div>
                 </div>
                 <p className="text-center text-slate-500 max-w-2xl mx-auto">
@@ -144,6 +145,19 @@ const ProjectHarbour = () => {
                 </div>
             </section>
 
+            <section className="py-32 bg-[#002FA7] text-white relative overflow-hidden text-center px-6">
+                <div className="max-w-3xl mx-auto relative z-10">
+                    <div className="w-16 h-1 bg-white mx-auto mb-12 opacity-50"/>
+                    <h3 className="text-3xl md:text-4xl font-light leading-relaxed mb-8 italic">
+                        "Every step, even those that don't lead to immediate success, is a valuable part of the journey
+                        in honing my skills."
+                    </h3>
+                    <p className="text-blue-200/50 uppercase tracking-[0.4em] text-xs font-bold">Reflections / 2026</p>
+                </div>
+                <div
+                    className="absolute -bottom-10 -right-10 text-[20rem] font-black text-white/5 pointer-events-none">VTOUR
+                </div>
+            </section>
         </div>
     );
 };
