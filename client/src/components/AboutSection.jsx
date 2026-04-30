@@ -34,9 +34,9 @@ export const AboutSection = () => {
       category: "others",
       items: [
         "Xiaomi Case Design",
-        "McDonald Promotional Video",
+        "ICBC Mascot",
         "Song Campaign Design",
-        "ICBC Mascot"
+        "McDonald Promotional Video",
       ]
     }
   ];
