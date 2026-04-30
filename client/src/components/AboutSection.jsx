@@ -43,15 +43,6 @@ export const AboutSection = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Programmatic download function
-  const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/Sahil-resume.pdf'; // Must be in public folder
-    link.download = 'Sahil-resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
 
   return (
     <section id="about" className="relative py-16 md:py-28 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-background via-background to-primary/5 overflow-hidden">
@@ -112,7 +103,7 @@ export const AboutSection = () => {
                   <div className="relative flex-shrink-0">
                     <div
                         className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-2xl transition-all duration-500 group-hover:border-primary/40 group-hover:scale-105 md:group-hover:scale-110 relative">
-                      <img src="/profile-logo.png" alt="Kylie Ko" className="w-full h-full object-cover"/>
+                      <img src="/KylieKo.jpg" alt="Kylie Ko" className="w-full h-full object-cover"/>
                       <div
                           className="absolute -bottom-2 -right-2 w-6 h-6 sm:w-8 sm:h-8 bg-green-500 rounded-full border-4 border-background flex items-center justify-center">
                         <div className="w-2 h-2 bg-green-300 rounded-full animate-pulse"/>

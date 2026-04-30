@@ -13,12 +13,6 @@ import { motion } from "framer-motion";
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const socialLinks = [
-    { icon: <Linkedin size={18} />, href: "https://linkedin.com/in/codewithkinu", label: "LinkedIn" },
-    { icon: <Instagram size={18} />, href: "https://instagram.com/dubbinut", label: "Instagram" },
-    { icon: <Youtube size={18} />, href: "https://youtube.com/@codewithkinu", label: "YouTube" },
-    { icon: <Github size={18} />, href: "https://github.com/sahilmd01", label: "GitHub" },
-  ];
 
   const quickLinks = [
     { name: "Home", href: "#hero" },
