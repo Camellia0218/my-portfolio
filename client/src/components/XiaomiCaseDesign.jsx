@@ -38,7 +38,7 @@ const XiaomiPhoneCase = () => {
                     {/* 模拟 Project Harbour 的大阴影容器展示核心设计图 */}
                     <div className="relative overflow-hidden rounded-3xl shadow-2xl bg-slate-50 p-6 border border-slate-100">
                         <img
-                            src="/XiaomiCaseDesign/XiaomiCaseDesign1.png"
+                            src="/XiaomiCaseDesign/XiaomiCaseDesign1.jpg"
                             alt="Xiaomi Phone Case Main Design"
                             className="w-full h-auto object-contain rounded-xl"
                         />
