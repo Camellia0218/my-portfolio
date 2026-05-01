@@ -97,18 +97,18 @@ const SongCampaignDesign = () => {
                 <h2 className="text-3xl font-bold mb-12 text-center">Bringing Vision to Life</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12">
-                    <motion.div whileHover={{ y: -8 }} className="rounded-2xl shadow-lg overflow-hidden">
+                    <motion.div whileHover={{y: -8}} className="rounded-2xl shadow-lg overflow-hidden h-80">
                         <img
                             src="/Song Campaign Design/Song Campaign Design5.jpg"
                             alt="Outdoor Billboard Mockup"
-                            className="w-full h-auto object-cover"
+                            className="w-full h-full object-cover object-center"
                         />
                     </motion.div>
-                    <motion.div whileHover={{ y: -8 }} className="rounded-2xl shadow-lg overflow-hidden">
+                    <motion.div whileHover={{y: -8}} className="rounded-2xl shadow-lg overflow-hidden h-80">
                         <img
                             src="/Song Campaign Design/Song Campaign Design3.png"
                             alt="CD Full Mockup"
-                            className="w-full h-auto object-cover"
+                            className="w-full h-full object-cover object-center"
                         />
                     </motion.div>
                 </div>

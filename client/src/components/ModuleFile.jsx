@@ -73,7 +73,7 @@ const Carousel = ({ images }) => {
                     {images[current].label}
                 </span>
                 <div className="flex flex-wrap justify-center gap-1.5 max-w-[60%]">
-                    {/* 只展示指示点，不展示全部54个防止拥挤，或仅展示当前进度 */}
+                    {/* 只展示指示点，不展示全部82个防止拥挤，或仅展示当前进度 */}
                     <span className="text-white/80 text-[10px] font-mono">
                         {current + 1} / {images.length}
                     </span>
@@ -86,9 +86,9 @@ const Carousel = ({ images }) => {
 // ─── 主页面 ──────────────────────────────────────────────
 const ModuleFileProject = () => {
     // 生成 54 张图片数组
-    const galleryImages = Array.from({ length: 54 }, (_, i) => ({
+    const galleryImages = Array.from({ length: 82 }, (_, i) => ({
         src: `/Module File/Gallery/${i + 1}.png`,
-        label: `Module File - Page ${i + 1} of 54`
+        label: `Module File - Page ${i + 1} of 82`
     }));
 
     return (
@@ -136,7 +136,7 @@ const ModuleFileProject = () => {
                     <div className="text-center mb-12">
                         <h2 className="text-3xl font-bold mb-3 text-[#002FA7]">The Process of 180 Days</h2>
                         <p className="text-[#002FA7]/60 text-sm uppercase tracking-widest font-medium">
-                            Full Book Preview — 54 Pages
+                            Full Book Preview — 82 Pages
                         </p>
                     </div>
 

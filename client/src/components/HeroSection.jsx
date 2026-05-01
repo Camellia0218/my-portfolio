@@ -2,6 +2,191 @@ import { ArrowDown, MousePointerClick, Sparkles, Code, Palette, Rocket, Award, D
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
+const MagazineCard = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [phase, setPhase] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+    const timers = [
+      setTimeout(() => setPhase(1), 200),
+      setTimeout(() => setPhase(2), 600),
+      setTimeout(() => setPhase(3), 800),
+      setTimeout(() => setPhase(4), 1100),
+      setTimeout(() => setPhase(5), 1500),
+      setTimeout(() => setPhase(6), 1900),
+      setTimeout(() => setPhase(7), 2280),
+      setTimeout(() => setPhase(8), 2600),
+    ];
+    return () => timers.forEach(clearTimeout);
+  }, [isInView]);
+
+  const foldStyle = (show) => ({
+    overflow: "hidden",
+    maxHeight: show ? "100px" : "0px",
+    opacity: show ? 1 : 0,
+    transition: "max-height 0.45s ease, opacity 0.4s ease",
+  });
+
+  const printStyle = (show) => ({
+    opacity: show ? 1 : 0,
+    transition: "opacity 0.35s ease",
+  });
+
+  const inkStyle = (show) => ({
+    opacity: show ? 1 : 0,
+    filter: show ? "blur(0px)" : "blur(6px)",
+    transition: "opacity 0.5s ease, filter 0.6s ease",
+  });
+
+  return (
+      <motion.div
+          ref={ref}
+          className="flex-1 flex justify-center lg:justify-end w-full"
+          variants={{
+            hidden: { y: 30, opacity: 0 },
+            visible: { y: 0, opacity: 1, transition: { duration: 0.6 } }
+          }}
+      >
+        <motion.div
+            className="w-full max-w-lg border border-border/60 overflow-hidden shadow-2xl relative"
+            style={{ borderRadius: "4px" }}
+            whileHover={{ y: -4 }}
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+        >
+          {/* 扫描线覆盖层 */}
+          {isInView && (
+              <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden" style={{ borderRadius: "4px" }}>
+                <motion.div
+                    className="absolute left-0 right-0 bottom-0 bg-background/90"
+                    animate={{ height: ["100%", "0%"] }}
+                    transition={{ duration: 2.8, ease: [0.4, 0, 0.6, 1] }}
+                />
+                <motion.div
+                    className="absolute left-0 right-0 h-[3px]"
+                    style={{ background: "rgba(180,210,255,0.6)", boxShadow: "0 0 10px 3px rgba(100,160,255,0.3)" }}
+                    animate={{ y: [0, 600], opacity: [0, 1, 1, 0] }}
+                    transition={{ duration: 2.8, ease: [0.4, 0, 0.6, 1], times: [0, 0.05, 0.95, 1] }}
+                />
+              </div>
+          )}
+
+          {/* 刊头 */}
+          <div className="bg-[#002FA7] px-5 py-3 flex items-center justify-between">
+          <span style={printStyle(phase >= 1)} className="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/50">
+            Portfolio Quarterly
+          </span>
+            <span style={printStyle(phase >= 1)} className="text-[10px] text-white/35 tracking-[0.1em]">
+            Vol. 01 · 2026
+          </span>
+          </div>
+
+          {/* 封面主视觉 */}
+          <div className="bg-[#001A66] px-7 pt-10 pb-8 relative overflow-hidden">
+            <div
+                className="absolute inset-0 opacity-[0.04]"
+                style={{
+                  backgroundImage: "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
+                  backgroundSize: "80px 40px"
+                }}
+            />
+            <p style={printStyle(phase >= 2)} className="text-[10px] font-semibold tracking-[0.22em] uppercase text-white/40 mb-3 relative">
+              Featured Creative · HKDI
+            </p>
+            <h3
+                style={{ ...inkStyle(phase >= 3), fontFamily: "Georgia, serif" }}
+                className="text-7xl font-bold text-white leading-none tracking-tight relative"
+            >
+              Kylie
+            </h3>
+            <p style={printStyle(phase >= 4)} className="text-[11px] tracking-[0.14em] uppercase text-white/45 mt-3 relative">
+              Advertising &amp; Design Student
+            </p>
+            <div style={printStyle(phase >= 4)} className="w-10 h-0.5 bg-white/25 mt-4 relative" />
+          </div>
+
+          {/* 栏目列表 */}
+          <div className="bg-background divide-y divide-border/50">
+
+            {/* 01 Vision */}
+            <div className="flex">
+              <div
+                  style={{ ...foldStyle(phase >= 5), width: "44px", flexShrink: 0 }}
+                  className="bg-[#002FA7] flex items-center justify-center text-[11px] font-medium text-white/55"
+              >
+                01
+              </div>
+              <div style={foldStyle(phase >= 5)} className="px-4 py-3.5 flex-1">
+                <p className="text-[10px] font-semibold tracking-[0.18em] uppercase text-muted-foreground mb-1">Vision</p>
+                <p className="text-[15px] text-foreground leading-snug">Where storytelling meets visual precision</p>
+              </div>
+            </div>
+
+            {/* 02 Expertise */}
+            <div className="flex">
+              <div
+                  style={{ ...foldStyle(phase >= 6), width: "44px", flexShrink: 0 }}
+                  className="bg-[#002FA7] flex items-center justify-center text-[11px] font-medium text-white/55"
+              >
+                02
+              </div>
+              <div style={{ ...foldStyle(phase >= 6), maxHeight: phase >= 6 ? "120px" : "0px" }} className="px-4 py-3.5 flex-1">
+                <p className="text-[10px] font-semibold tracking-[0.18em] uppercase text-muted-foreground mb-2">Expertise</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {["Branding", "Digital Ads", "Copywriting", "Visual Comm", "UI / UX"].map(tag => (
+                      <span
+                          key={tag}
+                          className="text-[11px] px-2.5 py-0.5 border border-[#002FA7]/40 text-[#002FA7]"
+                          style={{ borderRadius: "2px" }}
+                      >
+                    {tag}
+                  </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* 03 Highlights */}
+            <div className="flex">
+              <div
+                  style={{ ...foldStyle(phase >= 7), width: "44px", flexShrink: 0 }}
+                  className="bg-[#002FA7] flex items-center justify-center text-[11px] font-medium text-white/55"
+              >
+                03
+              </div>
+              <div style={foldStyle(phase >= 7)} className="px-4 py-3.5 flex-1">
+                <p className="text-[10px] font-semibold tracking-[0.18em] uppercase text-muted-foreground mb-1">Highlights</p>
+                <p className="text-[15px] text-foreground">8+ Projects · 3 Awards · 2 Brands</p>
+              </div>
+            </div>
+          </div>
+
+          {/* 底栏 */}
+          <div
+              style={{ ...foldStyle(phase >= 8), maxHeight: phase >= 8 ? "50px" : "0px" }}
+              className="bg-muted/30 border-t border-border/50 px-5 py-2.5 flex items-center justify-between"
+          >
+            <div className="flex items-center gap-2">
+              <motion.span
+                  className="w-1.5 h-1.5 rounded-full bg-green-400 block"
+                  animate={{ opacity: [1, 0.3, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+              />
+              <span className="text-[11px] text-muted-foreground tracking-wider">Open to opportunities</span>
+            </div>
+            <div className="flex items-end gap-px h-5">
+              {[14, 20, 10, 18, 12, 20, 8, 16, 20, 12, 18, 10].map((h, i) => (
+                  <span key={i} className="block w-0.5 bg-muted-foreground/25" style={{ height: `${h}px` }} />
+              ))}
+            </div>
+          </div>
+
+        </motion.div>
+      </motion.div>
+  );
+};
+
 export const HeroSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -198,61 +383,9 @@ export const HeroSection = () => {
             hidden: {y: 30, opacity: 0},
             visible: {y: 0, opacity: 1, transition: {duration: 0.8}}
           }}>
-            <div className="relative w-full max-w-md">
-              <motion.div
-                  className="bg-background/90 border border-border rounded-2xl p-8 backdrop-blur-sm shadow-2xl w-full group hover:shadow-3xl transition-all duration-500" whileHover={{ y: -4 }} transition={{ type: "spring", stiffness: 400, damping: 25 }}>
 
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-400/80"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-400/80"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-400/80"></div>
-                  </div>
-                  <div className="flex-1 text-center">
-                    <div className="text-sm font-mono font-semibold text-muted-foreground">portfolio.js</div>
-                  </div>
-                  <div className="w-4 h-4 bg-green-400/20 rounded-full animate-pulse"></div>
-                </div>
+            <MagazineCard />
 
-                <div className="font-mono text-sm bg-primary/5 rounded-lg border border-primary/10 min-h-[280px] flex">
-                  <div className="p-6 w-full">
-                    <div className="grid grid-cols-1 gap-1 h-full content-start">
-                      {codeSnippets.map((line, index) => (
-                          <div key={index} className={`min-h-[20px] flex items-start text-xs sm:text-sm font-mono py-0.5${index < currentCodeLine ? 'opacity-100' : 'opacity-0'}${index === currentCodeLine ? 'opacity-100' : ''}transition-opacity duration-150`}>
-                            {/* 行号：固定宽度，防止被挤压 */}
-                            <span className="mr-4 text-slate-300 select-none w-4 flex-shrink-0 text-right">{index + 1}</span>
-                            {/* 代码内容：关键在于 break-words 和 whitespace-pre-wrap */}
-                            <span className="flex-1 whitespace-pre-wrap break-words overflow-hidden">
-                              {index < currentCodeLine ?
-                                  (renderColoredText(line)) : index === currentCodeLine ? (
-                            <span className="text-[#002FA7] font-bold">
-                              {displayedCode}
-                                <motion.span animate={{ opacity: [1, 0, 1] }} transition={{ duration: 0.8, repeat: Infinity }} className="ml-1 inline-block w-1.5 h-4 bg-[#002FA7] align-middle"/>
-                              </span>
-                                  ) : ''}
-                            </span>
-                          </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <motion.div className="absolute -bottom-3 -right-3 w-14 h-14 bg-[#002FA7] rounded-xl flex items-center justify-center border-2 border-background shadow-2xl"
-                            animate={{ y: [0, -5, 0], rotate: [0, -2, 0], scale: [1, 1.03, 1] }} transition={{ duration: 4, repeat: Infinity }}>
-                  <Code className="h-5 w-5 text-white" />
-                </motion.div>
-
-                <motion.div className="absolute -top-3 -left-3 bg-background/90 backdrop-blur-sm px-4 py-2 rounded-xl border border-border shadow-lg flex items-center gap-2" initial={{ scale: 0, rotate: -180 }} animate={{ scale: 1, rotate: 0 }} transition={{ delay: 1.5, type: "spring" }}>
-                  <Award className="h-4 w-4 text-amber-500" />
-                  <span className="text-sm font-semibold text-foreground">Solutions</span>
-                </motion.div>
-
-                <motion.div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-background/90 backdrop-blur-sm px-4 py-2 rounded-xl border border-border shadow-lg text-center" initial={{ scale: 0, y: 20 }} animate={{ scale: 1, y: 0 }} transition={{ delay: 2, type: "spring" }}>
-                  <div className="text-xs font-mono text-muted-foreground">Built with</div>
-                  <div className="text-sm font-bold text-foreground">Modern Tech</div>
-                </motion.div>
-              </motion.div>
-            </div>
           </motion.div>
         </motion.div>
       </div>

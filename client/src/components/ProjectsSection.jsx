@@ -3,6 +3,9 @@ import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Heart } from "lucide-react";
 
+const toProjectId = (demoUrl) =>
+    demoUrl?.replace(/^\//, "").replace(/\//g, "-") ?? null;
+
 const VideoModal = ({ isOpen, onClose, videoUrl, title }) => {
   // ESC 关闭
   useEffect(() => {
@@ -89,7 +92,7 @@ const projects = [
     id: 1,
     title: "Xiaomi Case Design",
     description: "An avant-garde phone case designed for Xiaomi, themed around Desire and Human Nature. It features a bold hand-drawn aesthetic with recurring eye motifs that symbolize the concept of peering into one's inner longings.",
-    image: "/projects/XiaomiCaseDesign.png",
+    image: "/projects/XiaomiCaseDesign.jpg",
     tags: ["Visual Storytelling", "Hand-Drawn", "Product Design"],
     demoUrl: "/project-xiaomi",
     featured: true,
@@ -196,10 +199,7 @@ const projects = [
   }
 ];
 
-export const ProjectsSection = () => {
-
-  const [showAll, setShowAll] = useState(false);
-  const [activeFilter, setActiveFilter] = useState("All");
+export const ProjectsSection = ({ onOpenProject, showAll, setShowAll, activeFilter, setActiveFilter }) => {
   const [hoveredProject, setHoveredProject] = useState(null);
   const sectionRef = useRef(null);
 
@@ -416,27 +416,28 @@ export const ProjectsSection = () => {
                                   View Gallery
                                 </motion.button>
                             ) : (
-                                <motion.a
-                                    href={project.demoUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    whileHover={{ y: -2 }}
+                                <motion.button
+                                    onClick={() => {
+                                      const id = toProjectId(project.demoUrl);
+                                      if (id) onOpenProject(id);
+                                    }}
+                                    whileHover={{y: -2}}
                                     className={`flex-1 inline-flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-bold uppercase tracking-widest transition-all duration-300 ${
-                                        project.demoUrl === "#"
+                                        !project.demoUrl || project.demoUrl === "#"
                                             ? "bg-muted text-muted-foreground cursor-not-allowed"
                                             : "bg-[#002FA7] text-white"
                                     }`}
-                                    onClick={(e) => project.demoUrl === "#" && e.preventDefault()}
+                                    disabled={!project.demoUrl || project.demoUrl === "#"}
                                 >
-                                  <Eye size={14} />
-                                  {project.demoUrl === "#" ? "Soon" : "View Gallery"}
-                                </motion.a>
+                                  <Eye size={14}/>
+                                  {!project.demoUrl || project.demoUrl === "#" ? "Soon" : "View Gallery"}
+                                </motion.button>
                             )}
 
                             <motion.button
                                 onClick={(e) => toggleLike(project.id, e)}
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.9 }}
+                                whileHover={{scale: 1.05}}
+                                whileTap={{scale: 0.9}}
                                 className={`inline-flex items-center justify-center gap-2 py-2.5 px-5 rounded-xl text-xs font-bold uppercase tracking-widest border transition-all duration-300 ${
                                     isProjectLiked
                                         ? "bg-[#002FA7]/10 border-[#002FA7] text-[#002FA7]"
