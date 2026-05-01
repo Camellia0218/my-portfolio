@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const WelcomeScreen = ({ onWelcomeComplete }) => {
-  const [phase, setPhase] = useState(0); // 0: Logo 弹跳, 1: 文案优雅展开
+  const [phase, setPhase] = useState(0);
   const [exitAnimation, setExitAnimation] = useState(false);
 
-  // 核心色调：高级白 + 纯粹克莱因蓝
   const colors = {
     klein: "#002FA7",
     text: "#1A1A1A",
@@ -14,7 +13,6 @@ const WelcomeScreen = ({ onWelcomeComplete }) => {
   };
 
   useEffect(() => {
-    // 阶段控制
     const timer1 = setTimeout(() => setPhase(1), 800);
     const complete = setTimeout(() => {
       setExitAnimation(true);
@@ -37,7 +35,7 @@ const WelcomeScreen = ({ onWelcomeComplete }) => {
         >
           <div className="w-full max-w-4xl mx-auto text-center flex flex-col items-center">
 
-            {/* --- LOGO 区域：聚焦弹跳入场感 --- */}
+            {/* --- LOGO 区域 --- */}
             <div className="relative mb-10">
               <motion.div
                   initial={{ scale: 0, y: 60, rotate: -5 }}
@@ -51,24 +49,31 @@ const WelcomeScreen = ({ onWelcomeComplete }) => {
                   className="relative w-32 h-32 md:w-44 md:h-44"
               >
                 {/* Logo 圆环容器 */}
-                <div className="w-full h-full rounded-full overflow-hidden border-[5px] border-[#002FA7] shadow-[0_20px_50px_rgba(0,47,167,0.15)] bg-white p-1">
+                <div
+                    className="w-full h-full rounded-full overflow-hidden border-[5px] border-[#002FA7] shadow-[0_20px_50px_rgba(0,47,167,0.15)] bg-white flex items-center justify-center">
                   <img
                       src="/kylie.png"
                       alt="Kylie"
-                      className="w-full h-full object-cover rounded-full"
+                      className="object-contain"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        transform: "scale(1.5) translateY(-2.8%) translateX(1.4%)",
+                        transformOrigin: "center center"
+                      }}
                   />
                 </div>
 
-                {/* 外围装饰虚线圈：增加设计的层次感 */}
+                {/* 外围装饰虚线圈 */}
                 <motion.div
                     className="absolute -inset-3 border border-dashed border-[#002FA7]/30 rounded-full"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    animate={{rotate: 360}}
+                    transition={{duration: 20, repeat: Infinity, ease: "linear"}}
                 />
               </motion.div>
             </div>
 
-            {/* --- 文案区域：HKDI 广告系学生的人设表达 --- */}
+            {/* --- 文案区域 --- */}
             <div className="space-y-6">
               <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -101,12 +106,12 @@ const WelcomeScreen = ({ onWelcomeComplete }) => {
               </motion.div>
             </div>
 
-            {/* --- 底部装饰：极简主义进度暗示 --- */}
+            {/* --- 底部进度条 --- */}
             <div className="absolute bottom-16 w-full max-w-[200px] px-4">
               <div className="h-[1px] w-full bg-[#002FA7]/10 relative overflow-hidden">
                 <motion.div
-                    initial={{left: "-100%"}}
-                    animate={{left: "100%"}}
+                    initial={{ left: "-100%" }}
+                    animate={{ left: "100%" }}
                     transition={{
                       duration: 2,
                       repeat: Infinity,
@@ -116,11 +121,10 @@ const WelcomeScreen = ({ onWelcomeComplete }) => {
                     className="absolute h-full w-1/2 bg-[#002FA7]"
                 />
               </div>
-              {/* 可选：在条下方增加极小的 loading 字样提升精致感 */}
               <motion.p
-                  initial={{opacity: 0}}
-                  animate={{opacity: 1}}
-                  transition={{delay: 1}}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1 }}
                   className="text-[8px] tracking-[0.3em] text-[#002FA7]/40 mt-2 uppercase text-center"
               >
                 Loading Inspiration
