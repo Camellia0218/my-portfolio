@@ -10,11 +10,12 @@ import { ProjectsSection } from "../components/ProjectsSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
 import ProjectDetail from "@/components/ProjectDetail";
+import {DesignHubSection} from "../components/DesignHubSection"
 
 export const Home = () => {
     const [activeProject, setActiveProject] = useState(null);
-    const [showAll, setShowAll] = useState(false);        // ✅ 提升到这里
-    const [activeFilter, setActiveFilter] = useState("All"); // ✅ 同样提升，保持筛选状态
+    const [showAll, setShowAll] = useState(false);
+    const [activeFilter, setActiveFilter] = useState("All");
     const scrollPositionRef = useRef(0);
 
     const handleOpenProject = (projectId) => {
@@ -50,11 +51,12 @@ export const Home = () => {
                             <AboutSection />
                             <ProjectsSection
                                 onOpenProject={handleOpenProject}
-                                showAll={showAll}                  // ✅ 传入
-                                setShowAll={setShowAll}            // ✅ 传入
-                                activeFilter={activeFilter}        // ✅ 传入
-                                setActiveFilter={setActiveFilter}  // ✅ 传入
+                                showAll={showAll}
+                                setShowAll={setShowAll}
+                                activeFilter={activeFilter}
+                                setActiveFilter={setActiveFilter}
                             />
+                            <DesignHubSection />
                             <ContactSection />
                         </main>
                         <Footer />

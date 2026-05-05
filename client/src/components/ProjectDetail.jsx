@@ -10,7 +10,6 @@ import TuborgProject from "./TuborgProject";
 import Brief from "./Brief";
 import ModuleFile from "./ModuleFile";
 
-// ✅ 只需在这里维护 id → 组件的映射
 const PROJECT_COMPONENTS = {
     "project-harbour": ProjectHarbour,
     "project-xiaomi": XiaomiPhoneCase,
@@ -21,7 +20,7 @@ const PROJECT_COMPONENTS = {
     "project-task-in-class": TaskinClass,
     "project-dad": TuborgProject,
     "project-6-brief": Brief,
-    "project-module-file": ModuleFile,
+    "project-ModuleFile": ModuleFile,
 };
 
 const ProjectDetail = ({ projectId }) => {

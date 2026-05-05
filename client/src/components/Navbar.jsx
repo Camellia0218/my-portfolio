@@ -7,13 +7,13 @@ import {
   MessageSquare,
   Mail,
   BookOpen,
-  Sun,
-  Moon,
+  SunMoon,
   Volume2,
   VolumeX,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import * as PropTypes from "prop-types";
 
 
 const ThemeToggle = () => {
@@ -54,6 +54,15 @@ export const Navbar = () => {
   const audioRef = useRef(null);
 
   const musicUrl = "/music.mp3";
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
 
   // 音频逻辑保持不变
   useEffect(() => {
@@ -115,18 +124,27 @@ export const Navbar = () => {
           {name: "Home", href: "#hero", icon: <Home size={20}/>},
           {name: "About", href: "#about", icon: <User size={20}/>},
           {name: "Projects", href: "#projects", icon: <Briefcase size={20}/>},
-          {name: "Contact", href: "#contact", icon: <Mail size={20}/>}
+          {name: "Contact", href: "#contact", icon: <Mail size={20}/>},
+          {name: "Theme", href: "#theme", icon: <SunMoon size={20}/>}
         ].map((item) => (
             <motion.a
                 key={item.name}
-                href={item.href}
+                // 当是 Theme 按钮时，不设置 href 属性，避免点击导致 URL 变化
+                href={item.name === "Theme" ? undefined : item.href}
+                onClick={(e) => {
+                  if (item.name === "Theme") {
+                    e.preventDefault(); // 阻止 a 标签默认的锚点跳转行为
+                    setDarkMode(!darkMode); // 切换你的 darkMode 状态
+                  }
+                }}
                 whileHover={{scale: 1.1}}
                 whileTap={{scale: 0.9}}
                 className={cn(
-                    "w-10 h-10 rounded-full flex items-center justify-center transition-all shadow-lg border",
-                    "bg-white/90 dark:bg-black/80 backdrop-blur-md", // 背景样式
-                    activeSection === item.href
-                        ? "border-[#002FA7] text-[#002FA7] bg-white" // 激活状态：克莱因蓝边框和图标
+                    "w-10 h-10 rounded-full flex items-center justify-center transition-all shadow-lg border cursor-pointer",
+                    "bg-white/90 dark:bg-black/80 backdrop-blur-md",
+                    // 只有普通导航项在激活时显示蓝框，Theme 按钮不参与高亮
+                    item.name !== "Theme" && activeSection === item.href
+                        ? "border-[#002FA7] text-[#002FA7] bg-white"
                         : "border-gray-200 dark:border-gray-700 text-gray-500 hover:text-[#002FA7] hover:border-[#002FA7]/50"
                 )}
                 title={item.name}

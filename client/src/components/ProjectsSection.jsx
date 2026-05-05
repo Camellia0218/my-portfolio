@@ -167,7 +167,7 @@ const projects = [
   },
   {
     id: 6,
-    title: "D&AD Project",
+    title: "D&AD Project Solo And TeamWork",
     category: "Branding",
     description: "Package design for Tuborg Beer — three emotionally-driven can concepts helping young people release pressure, paired with promotional posters, carrier bags, and collectible bottle caps.",
     image: "/projects/Tuborg.png",
