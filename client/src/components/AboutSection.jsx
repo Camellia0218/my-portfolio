@@ -134,8 +134,7 @@ export const AboutSection = () => {
                   {/* Achievements */}
                   <div className="flex-1 text-center md:text-left">
                     <h2 className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">Kylie Ko</h2>
-                    <p className="text-[#002FA7] text-base sm:text-lg font-semibold mb-3 sm:mb-4">Advertising
-                      Student</p>
+                    <p className="text-[#002FA7] text-base sm:text-lg font-semibold mb-3 sm:mb-4">Graphic Student</p>
                     <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
                       {achievements.map((achievement, index) => {
                         // 检查当前索引是否处于自动轮播的高亮状态

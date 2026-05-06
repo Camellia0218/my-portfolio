@@ -89,7 +89,7 @@ const MagazineCard = () => {
                 }}
             />
             <p style={printStyle(phase >= 2)} className="text-[10px] font-semibold tracking-[0.22em] uppercase text-white/40 mb-3 relative">
-              Featured Creative · HKDI
+              Featured Creative · UWE Bristol
             </p>
             <h3
                 style={{ ...inkStyle(phase >= 3), fontFamily: "Georgia, serif" }}
@@ -98,7 +98,7 @@ const MagazineCard = () => {
               Kylie
             </h3>
             <p style={printStyle(phase >= 4)} className="text-[11px] tracking-[0.14em] uppercase text-white/45 mt-3 relative">
-              Advertising &amp; Design Student
+              GRAPHIC STUDENT
             </p>
             <div style={printStyle(phase >= 4)} className="w-10 h-0.5 bg-white/25 mt-4 relative" />
           </div>
@@ -241,7 +241,7 @@ export const HeroSection = () => {
                 >
                   <span className="block">I'm Kylie</span>
                   {/* 职业改为深克莱因蓝 */}
-                  <span className={`block mt-1 ${isDarkMode ? 'text-[#002FA7]' : 'text-[#002FA7]'}`}>Advertising Student</span>
+                  <span className={`block mt-1 ${isDarkMode ? 'text-[#002FA7]' : 'text-[#002FA7]'}`}>Graphic Student</span>
                 </motion.h1>
 
                 <motion.p
@@ -249,7 +249,7 @@ export const HeroSection = () => {
                         isDarkMode ? 'text-slate-300' : 'text-slate-800'
                     }`}
                 >
-                  I'm a <span className="text-[#002FA7] font-bold">creative and enthusiastic advertising student</span> at HKDI with a passion for storytelling and visual communication.
+                  I'm a <span className="text-[#002FA7] font-bold">creative and enthusiastic graphic student</span> at UWE Bristol with a passion for storytelling and visual communication. I believe in the power of innovative ideas and thoughtful design to make brands shine.
                 </motion.p>
               </motion.div>
 
