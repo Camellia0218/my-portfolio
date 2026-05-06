@@ -86,7 +86,7 @@ const WelcomeScreen = ({ onWelcomeComplete }) => {
                 <div className="flex items-center justify-center gap-3 mt-2">
                   <div className="h-[1px] w-8 bg-[#002FA7]/30" />
                   <p className="text-[#002FA7] text-xs md:text-sm font-bold tracking-[0.4em] uppercase">
-                    HKDI Advertising Student
+                      UWE Bristol Graphic Student
                   </p>
                   <div className="h-[1px] w-8 bg-[#002FA7]/30" />
                 </div>

@@ -170,30 +170,6 @@ const DADProject = () => {
                             />
                         </motion.div>
                     </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <motion.div whileHover={{ y: -5 }} className="rounded-2xl shadow-xl overflow-hidden bg-white">
-                            <img
-                                src="/TubrogProject/TubrogProject11.png"
-                                alt="Tuborg Collectible Bottle Caps"
-                                className="w-full h-auto"
-                            />
-                        </motion.div>
-                        <div className="space-y-5 text-slate-600 leading-loose">
-                            <p>
-                                To evoke a sense of longing for free time among young people, I encouraged
-                                the design of new bottle caps — adding graphics to the bottom to give them
-                                collectible value.
-                            </p>
-                            <p>
-                                The packaging design was divided into three scenes: <strong>outdoors,
-                                clubbing, and gathering with friends.</strong> The graphics incorporate
-                                musical elements, expressing a "slightly tipsy" feeling through pixels
-                                and swirls — reminding young people that they deserve space and time
-                                to liberate themselves.
-                            </p>
-                        </div>
-                    </div>
                 </div>
             </section>
 
