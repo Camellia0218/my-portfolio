@@ -249,7 +249,7 @@ export const HeroSection = () => {
                         isDarkMode ? 'text-slate-300' : 'text-slate-800'
                     }`}
                 >
-                  I'm a <span className="text-[#002FA7] font-bold">creative and enthusiastic graphic student</span> at UWE Bristol with a passion for storytelling and visual communication. I believe in the power of innovative ideas and thoughtful design to make brands shine.
+                  I'm a <span className="text-[#002FA7] font-bold">creative and enthusiastic graphic student</span> at The University of the West of England  with a passion for storytelling and visual communication. I believe in the power of innovative ideas and thoughtful design to make brands shine.
                 </motion.p>
               </motion.div>
 
